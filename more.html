@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Further Medical Details - Doctor Collins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="btn outline ripple" style="padding:8px 12px; font-size: 14px;">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+      <h1 class="site-title">Consultation with Doctor Collins</h1>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 24px 0 40px;">
+    <section class="form-section">
+      <h3>Further Medical Details</h3>
+      <form id="vitalsForm" novalidate>
+        <div class="grid-3">
+          <div class="form-field">
+            <label for="bp">Blood Pressure</label>
+            <input type="text" id="bp" name="bp" placeholder="120/80 mmHg" required />
+            <span class="error" data-error-for="bp"></span>
+          </div>
+          <div class="form-field">
+            <label for="pulse">Pulse</label>
+            <input type="number" id="pulse" name="pulse" min="0" placeholder="bpm" required />
+            <span class="error" data-error-for="pulse"></span>
+          </div>
+          <div class="form-field">
+            <label for="spo2">SPO₂</label>
+            <input type="number" id="spo2" name="spo2" min="0" max="100" placeholder="%" required />
+            <span class="error" data-error-for="spo2"></span>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-field">
+            <label for="temp">Temperature</label>
+            <input type="number" id="temp" name="temp" step="0.1" placeholder="°C" required />
+            <span class="error" data-error-for="temp"></span>
+          </div>
+          <div class="form-field">
+            <label for="rbs">Random Blood Sugar</label>
+            <input type="number" id="rbs" name="rbs" step="0.1" placeholder="mmol/L" required />
+            <span class="error" data-error-for="rbs"></span>
+          </div>
+          <div class="form-field">
+            <label for="weight">Weight</label>
+            <input type="number" id="weight" name="weight" step="0.1" placeholder="kg" required />
+            <span class="error" data-error-for="weight"></span>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-field">
+            <label for="height">Height</label>
+            <input type="number" id="height" name="height" step="0.01" placeholder="meters" required />
+            <span class="error" data-error-for="height"></span>
+          </div>
+          <div class="form-field">
+            <label for="bmi">BMI (auto-calculated)</label>
+            <input type="text" id="bmi" name="bmi" placeholder="—" readonly />
+            <span class="error" data-error-for="bmi"></span>
+          </div>
+          <div class="form-field" style="align-self: end;">
+            <div id="bmiDisplay" class="bmi-display">Enter weight and height to calculate BMI</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary ripple" id="sendVitals">
+            <i class="fa-brands fa-whatsapp"></i>
+            Send
+          </button>
+          <a href="tel:+256783079038" class="btn ripple" style="background: var(--danger); color: #fff;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Emergency Call
+          </a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Consultation with Doctor Collins | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/more.js"></script>
+</body>
+</html>
+
+

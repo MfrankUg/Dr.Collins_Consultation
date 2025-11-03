@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consultation with Doctor Collins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  
+  <main>
+    <section class="hero container">
+      <div class="hero-card">
+         <div class="hero-media">
+           <img src="assests/DR.COLLINS.png" alt="Doctor Collins" class="doctor-photo" />
+           <button class="fab call-fab ripple" aria-label="Call Doctor Collins" onclick="window.location.href='tel:+256783079038'">
+             <i class="fa-solid fa-phone"></i>
+           </button>
+         </div>
+        <div class="hero-text">
+          <h2>Welcome to Doctor Collins’ Consultation Portal</h2>
+          <p class="subtitle">Professional, compassionate care wherever you are.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section container">
+      <h3>Patient Details</h3>
+      <form id="patientForm" novalidate>
+        <div class="grid-2">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="YourName" required />
+            <span class="error" data-error-for="name"></span>
+          </div>
+          <div class="form-field">
+            <label for="phone">Telephone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+2567XXXXXXXX" pattern="^\+?[0-9]{9,15}$" required />
+            <span class="error" data-error-for="phone"></span>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="0" max="120" required />
+            <span class="error" data-error-for="age"></span>
+          </div>
+          <div class="form-field">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <span class="error" data-error-for="sex"></span>
+          </div>
+          <div class="form-field">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="City, Country" required />
+            <span class="error" data-error-for="location"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="reason">Reason for Consultation</label>
+          <textarea id="reason" name="reason" rows="4" placeholder="Describe your symptoms or concerns" required></textarea>
+          <span class="error" data-error-for="reason"></span>
+        </div>
+
+        <div class="actions">
+           <button type="submit" class="btn primary ripple" id="sendBtn">
+             <i class="fa-brands fa-whatsapp"></i>
+             Send
+           </button>
+          <a href="more.html" class="btn outline ripple">More Inquiries / Ask Me More</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Consultation with Doctor Collins | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

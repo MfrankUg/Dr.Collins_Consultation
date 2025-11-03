@@ -73,7 +73,7 @@
 
   function buildWhatsappUrl(values) {
     const base = 'https://wa.me/256783079038';
-    const text = `Hello Doctor Collins, Here are my details:%0A` +
+    const text = `Hello Dr.Collins, Here are my details:%0A` +
       `Name: ${encodeURIComponent(values.name)}%0A` +
       `Phone: ${encodeURIComponent(values.phone)}%0A` +
       `Age: ${encodeURIComponent(values.age)}%0A` +

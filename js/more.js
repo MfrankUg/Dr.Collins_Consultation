@@ -59,7 +59,7 @@
   function buildWhatsappUrl(values) {
     const base = 'https://wa.me/256783079038';
     const lines = [
-      'Hello Doctor Collins, Further medical details:',
+      'Hello Dr.Collins, Further medical details:',
       patientInfo.name ? `Name: ${patientInfo.name}` : null,
       patientInfo.age ? `Age: ${patientInfo.age}` : null,
       patientInfo.sex ? `Sex: ${patientInfo.sex}` : null,

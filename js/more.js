@@ -5,6 +5,12 @@
   const weightEl = document.getElementById('weight');
   const heightEl = document.getElementById('height');
   const sendBtn = document.getElementById('sendVitals');
+  const urlParams = new URLSearchParams(window.location.search);
+  const patientInfo = {
+    name: urlParams.get('name') || '',
+    age: urlParams.get('age') || '',
+    sex: urlParams.get('sex') || ''
+  };
 
   function setError(inputId, message) {
     const el = document.querySelector(`[data-error-for="${inputId}"]`);
@@ -62,6 +68,9 @@
     const base = 'https://wa.me/256783079038';
     const lines = [
       'Hello Doctor Collins, Further medical details:',
+      patientInfo.name ? `Name: ${patientInfo.name}` : null,
+      patientInfo.age ? `Age: ${patientInfo.age}` : null,
+      patientInfo.sex ? `Sex: ${patientInfo.sex}` : null,
       `Blood Pressure: ${values.bp}`,
       `Pulse: ${values.pulse} bpm`,
       `SPO2: ${values.spo2}%`,
@@ -70,7 +79,7 @@
       `Weight: ${values.weight} kg`,
       `Height: ${values.height} m`,
       `BMI: ${values.bmi || 'N/A'}`
-    ];
+    ].filter(Boolean);
     const encoded = encodeURIComponent(lines.join('\n'))
       .replace(/%0A/g, '%0A');
     return `${base}?text=${encoded}`;

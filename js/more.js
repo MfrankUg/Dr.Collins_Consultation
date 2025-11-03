@@ -45,23 +45,15 @@
   heightEl?.addEventListener('input', updateBmi);
 
   function validate() {
-    let valid = true;
-    const fields = [
-      ['bp', v => !!v.trim(), 'Required'],
-      ['pulse', v => v !== '' && Number(v) >= 0, 'Enter a valid number'],
-      ['spo2', v => v !== '' && Number(v) >= 0 && Number(v) <= 100, '0-100'],
-      ['temp', v => v !== '' && !isNaN(Number(v)), 'Enter a valid number'],
-      ['rbs', v => v !== '' && !isNaN(Number(v)), 'Enter a valid number'],
-      ['weight', v => v !== '' && Number(v) > 0, 'Required'],
-      ['height', v => v !== '' && Number(v) > 0, 'Required'],
-    ];
-
-    for (const [id, check, msg] of fields) {
-      const el = document.getElementById(id);
-      const ok = check(el.value);
-      if (!ok) { setError(id, msg); valid = false; } else setError(id);
+    // Only weight required; clear other errors
+    ['bp','pulse','spo2','temp','rbs','height','bmi'].forEach(id => setError(id, ''));
+    const weightVal = document.getElementById('weight').value.trim();
+    if (!weightVal || Number(weightVal) <= 0) {
+      setError('weight', 'Weight is required');
+      return false;
     }
-    return valid;
+    setError('weight', '');
+    return true;
   }
 
   function buildWhatsappUrl(values) {
@@ -71,14 +63,14 @@
       patientInfo.name ? `Name: ${patientInfo.name}` : null,
       patientInfo.age ? `Age: ${patientInfo.age}` : null,
       patientInfo.sex ? `Sex: ${patientInfo.sex}` : null,
-      `Blood Pressure: ${values.bp}`,
-      `Pulse: ${values.pulse} bpm`,
-      `SPO2: ${values.spo2}%`,
-      `Temperature: ${values.temp} °C`,
-      `RBS: ${values.rbs} mmol/L`,
-      `Weight: ${values.weight} kg`,
-      `Height: ${values.height} m`,
-      `BMI: ${values.bmi || 'N/A'}`
+      values.bp ? `Blood Pressure: ${values.bp}` : null,
+      values.pulse ? `Pulse: ${values.pulse} bpm` : null,
+      values.spo2 ? `SPO2: ${values.spo2}%` : null,
+      values.temp ? `Temperature: ${values.temp} °C` : null,
+      values.rbs ? `RBS: ${values.rbs} mmol/L` : null,
+      values.weight ? `Weight: ${values.weight} kg` : null,
+      values.height ? `Height: ${values.height} m` : null,
+      values.bmi ? `BMI: ${values.bmi}` : null
     ].filter(Boolean);
     const encoded = encodeURIComponent(lines.join('\n'))
       .replace(/%0A/g, '%0A');
